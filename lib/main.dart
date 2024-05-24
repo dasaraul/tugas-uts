@@ -105,7 +105,7 @@ class Biodata extends StatelessWidget {
                     ),
                     SizedBox(height: screenHeight * 0.02),
                     Text(
-                      'Riwayat Hidup:',
+                      'Riwayat Pendidikan:',
                       style: TextStyle(fontSize: fontSize),
                     ),
                     SingleChildScrollView(
@@ -186,7 +186,17 @@ class Biodata extends StatelessWidget {
                                   children: images
                                       .map((image) => Padding(
                                             padding: const EdgeInsets.all(1.0),
-                                            child: Image.asset(image),
+                                            child: Container(
+                                              width: 500,
+                                              height: 400,
+                                              decoration: BoxDecoration(
+                                                shape: BoxShape.rectangle,
+                                                image: DecorationImage(
+                                                  image: AssetImage(image),
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
+                                            ),
                                           ))
                                       .toList(),
                                 ),
