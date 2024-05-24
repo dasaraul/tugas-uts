@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
     )
     );
 
-    class Biodata extends StatelessWidget; {
+    class Biodata extends StatelessWidget {
       final String namal    = "Muhammad Akbar Hadi Pratama";
       final String nohp     = "082210819939";
       final String fakultas = "Fakultas Teknologi Komunikasi dan Informatika";
@@ -34,6 +34,34 @@ class MyApp extends StatelessWidget {
       'img/frey.png'
       'img/frey1.png'
     ];
+
+    @override
+    Widget build(BuildContext) {
+      return Padding
+       padding: new EdgeInsets.all(16.0),
+    child: Column(
+      children: [
+        Row(children: [
+          Expanded(child: 
+          flex: 3,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children:[
+              Text('Nama:' $namal),
+              Text('Nama:' $nohp),
+              Text('Nama:' $fakultas),
+              Text('Nama:' $prodi),
+              Text('Nama:' $alamat),
+              Text('Nama:' $email),
+              Text('Nama:' $ipk),
+              Text('Nama:' $mot),
+              SizedBox(height: 10)
+              // donnn
+              )
+            ]
+          )
+        ],)
+      ],
 
   }
   
