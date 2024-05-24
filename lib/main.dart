@@ -1,6 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  // Mengatur orientasi layar menjadi potret saja
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -19,27 +29,31 @@ class MyApp extends StatelessWidget {
   }
 }
 
-    class Biodata extends StatelessWidget {
-      final String namal    = "Muhammad Akbar Hadi Pratama";
-      final String nohp     = "082210819939";
-      final String fakultas = "Fakultas Teknologi Komunikasi dan Informatika";
-      final String prodi    = "Sistem Informasi";
-      final String alamat   = "BSD - Serpong Damai";
-      final String email    = "tamaes@tamaestore.my.id";
-      final String ipk      = "9999";
-      final String mot      = "Tetaplah Hidup";
-      
-      final List<String> images = [
-      'img/me.png',
-      'img/frey.png',
-      'img/frey1.png',
-    ];
+class Biodata extends StatelessWidget {
+  final String namal = "Muhammad Akbar Hadi Pratama";
+  final String nohp = "082210819939";
+  final String fakultas = "Fakultas Teknologi Komunikasi dan Informatika";
+  final String prodi = "Sistem Informasi";
+  final String alamat = "BSD - Serpong Damai";
+  final String email = "tamaes@tamaestore.my.id";
+  final String ipk = "9999";
+  final String mot = "Tetaplah Hidup";
 
-@override
+  final List<String> images = [
+    'img/me.png',
+    'img/frey.png',
+    'img/frey1.png',
+  ];
+
+  @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+    double fontSize = 9;
+
     return Padding(
-      padding: const EdgeInsets.all(16.0),
-       child: Column(
+      padding: EdgeInsets.all(screenHeight * 0.03),
+      child: Column(
         children: [
           Row(
             children: [
@@ -48,59 +62,95 @@ class MyApp extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-              Text('Nama          : $namal'),
-              Text('Nomor Hp      : $nohp'),
-              Text('Fakultas      : $fakultas'),
-              Text('Program Studi : $prodi'),
-              Text('Alamat        : $alamat'),
-              Text('Email         : $email'),
-              Text('IPK           : $ipk'),
-              Text('Moto Hidup    : $mot'),
-              SizedBox(height: 10),
-                    Text('Kata-kata:'),
-                    Text(mot),
-                    SizedBox(height: 20),
-                    Text('Riwayat Hidup:'),
-                    DataTable(
-                      columns: [
-                        DataColumn(label: Text('Jenjang')),
-                        DataColumn(label: Text('Nama Sekolah')),
-                        DataColumn(label: Text('Tahun Masuk')),
-                        DataColumn(label: Text('Tahun Lulus')),
-                      ],
-                      rows: [
-                        DataRow(cells: [
-                          DataCell(Text('SD')),
-                          DataCell(Text('SD Ulil Albab')),
-                          DataCell(Text('2010')),
-                          DataCell(Text('2016')),
-                        ]),
-                        DataRow(cells: [
-                          DataCell(Text('MTsN')),
-                          DataCell(Text('MTsN Caruban')),
-                          DataCell(Text('2017')),
-                          DataCell(Text('2020')),
-                        ]),
-                        DataRow(cells: [
-                          DataCell(Text('SMK')),
-                          DataCell(Text('SMKN 1 Wonoasri')),
-                          DataCell(Text('2020')),
-                          DataCell(Text('2022')),
-                        ]),
-                      ],
+                    Text(
+                      'Nama                  : $namal\n',
+                      style: TextStyle(fontSize: fontSize),
+                    ),
+                    Text(
+                      'Nomor Hp           : $nohp\n',
+                      style: TextStyle(fontSize: fontSize),
+                    ),
+                    Text(
+                      'Fakultas               : $fakultas\n',
+                      style: TextStyle(fontSize: fontSize),
+                    ),
+                    Text(
+                      'Program Studi    : $prodi\n',
+                      style: TextStyle(fontSize: fontSize),
+                    ),
+                    Text(
+                      'Alamat                : $alamat\n',
+                      style: TextStyle(fontSize: fontSize),
+                    ),
+                    Text(
+                      'Email                   : $email\n',
+                      style: TextStyle(fontSize: fontSize),
+                    ),
+                    Text(
+                      'IPK                        : $ipk\n',
+                      style: TextStyle(fontSize: fontSize),
+                    ),
+                    Text(
+                      'Moto Hidup           : $mot\n',
+                      style: TextStyle(fontSize: fontSize),
+                    ),
+                    SizedBox(height: screenHeight * 0.01),
+                    Text(
+                      'Kata-kata      :',
+                      style: TextStyle(fontSize: fontSize),
+                    ),
+                    Text(
+                      mot,
+                      style: TextStyle(fontSize: fontSize),
+                    ),
+                    SizedBox(height: screenHeight * 0.02),
+                    Text(
+                      'Riwayat Hidup:',
+                      style: TextStyle(fontSize: fontSize),
+                    ),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: DataTable(
+                        columns: [
+                          DataColumn(label: Text('Jenjang', style: TextStyle(fontSize: fontSize))),
+                          DataColumn(label: Text('Nama Sekolah', style: TextStyle(fontSize: fontSize))),
+                          DataColumn(label: Text('Tahun Masuk', style: TextStyle(fontSize: fontSize))),
+                          DataColumn(label: Text('Tahun Lulus', style: TextStyle(fontSize: fontSize))),
+                        ],
+                        rows: [
+                          DataRow(cells: [
+                            DataCell(Text('SD', style: TextStyle(fontSize: fontSize))),
+                            DataCell(Text('SD Ulil Albab', style: TextStyle(fontSize: fontSize))),
+                            DataCell(Text('2010', style: TextStyle(fontSize: fontSize))),
+                            DataCell(Text('2016', style: TextStyle(fontSize: fontSize))),
+                          ]),
+                          DataRow(cells: [
+                            DataCell(Text('MTsN', style: TextStyle(fontSize: fontSize))),
+                            DataCell(Text('MTsN Caruban', style: TextStyle(fontSize: fontSize))),
+                            DataCell(Text('2017', style: TextStyle(fontSize: fontSize))),
+                            DataCell(Text('2020', style: TextStyle(fontSize: fontSize))),
+                          ]),
+                          DataRow(cells: [
+                            DataCell(Text('SMK', style: TextStyle(fontSize: fontSize))),
+                            DataCell(Text('SMKN 1 Wonoasri', style: TextStyle(fontSize: fontSize))),
+                            DataCell(Text('2020', style: TextStyle(fontSize: fontSize))),
+                            DataCell(Text('2022', style: TextStyle(fontSize: fontSize))),
+                          ]),
+                        ],
+                      ),
                     ),
                   ],
                 ),
               ),
-    Expanded(
+              Expanded(
                 flex: 2,
                 child: Column(
                   children: [
                     CircleAvatar(
-                      radius: 50,
+                      radius: screenHeight * 0.1,
                       backgroundImage: AssetImage('img/me.png'),
                     ),
-                    SizedBox(height: 10),
+                    SizedBox(height: screenHeight * 0.01),
                     ElevatedButton(
                       onPressed: () {
                         showDialog(
@@ -115,7 +165,7 @@ class MyApp extends StatelessWidget {
                                     Navigator.of(context).pop();
                                   },
                                   child: Text('Tutup'),
-                               ),
+                                ),
                               ],
                             );
                           },
@@ -123,7 +173,7 @@ class MyApp extends StatelessWidget {
                       },
                       child: Text('Tentang Saya'),
                     ),
-        ElevatedButton(
+                    ElevatedButton(
                       onPressed: () {
                         showDialog(
                           context: context,
@@ -147,21 +197,21 @@ class MyApp extends StatelessWidget {
                                     Navigator.of(context).pop();
                                   },
                                   child: Text('Tutup'),
-                                   ),
+                                ),
                               ],
                             );
                           },
                         );
                       },
                       child: Text('Lihat Foto'),
-                     ),
+                    ),
                   ],
                 ),
-    ),
+              ),
             ],
           ),
         ],
-       ),
+      ),
     );
   }
-    }
+}
