@@ -4,20 +4,20 @@ void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
-  Widget build(BuildContext constext) {
+  Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'BIODATA MAHASISWA - UNIVERSITAS NASIONAL',
+      title: 'Biodata',
       home: Scaffold(
-      appBar: AppBar(
-
-      title: Text('Bio Muhammad Akbar'),
-    ),
-
-    body: SingleChildScrollView(
-      child: Biodata(),
-    )
-    )
+        appBar: AppBar(
+          title: Text('Biodata Saya'),
+        ),
+        body: SingleChildScrollView(
+          child: Biodata(),
+        ),
+      ),
     );
+  }
+}
 
     class Biodata extends StatelessWidget {
       final String namal    = "Muhammad Akbar Hadi Pratama";
@@ -28,6 +28,12 @@ class MyApp extends StatelessWidget {
       final String email    = "tamaes@tamaestore.my.id";
       final String ipk      = "9999";
       final String mot      = "Tetaplah Hidup";
+      
+        @override
+        Widget build(BuildContext context) {
+          // TODO: implement build
+          throw UnimplementedError();
+        }
     }
     final List<String> images = [
       'img/me.png'
@@ -36,17 +42,18 @@ class MyApp extends StatelessWidget {
     ];
 
     @override
-    Widget build(BuildContext) {
-      return Padding
-       padding: new EdgeInsets.all(16.0),
-    child: Column(
-      children: [
-        Row(children: [
-          Expanded(child: 
-          flex: 3,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children:[
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Expanded(
+                flex: 3,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
               Text('Nama          :' $namal),
               Text('Nomor Hp      :' $nohp),
               Text('Fakultas      :' $fakultas),
