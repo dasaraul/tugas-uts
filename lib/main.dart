@@ -30,9 +30,9 @@ class MyApp extends StatelessWidget {
       final String mot      = "Tetaplah Hidup";
       
       final List<String> images = [
-      'img/me.png'
-      'img/frey.png'
-      'img/frey1.png'
+      'img/me.png',
+      'img/frey.png',
+      'img/frey1.png',
     ];
 
 @override
@@ -63,23 +63,29 @@ class MyApp extends StatelessWidget {
                     Text('Riwayat Hidup:'),
                     DataTable(
                       columns: [
-                        DataColumn(label: Text('Umur')),
-                        DataColumn(label: Text('Masa')),
-                        DataColumn(label: Text('Prestasi')),
+                        DataColumn(label: Text('Jenjang')),
+                        DataColumn(label: Text('Nama Sekolah')),
+                        DataColumn(label: Text('Tahun Masuk')),
+                        DataColumn(label: Text('Tahun Lulus')),
                       ],
                       rows: [
                         DataRow(cells: [
-                          DataCell(Text('14 - 17')),
-                          DataCell(Text('Menempuh Pendidikan SMP')),
+                          DataCell(Text('SD')),
+                          DataCell(Text('SD Ulil Albab')),
+                          DataCell(Text('2010')),
+                          DataCell(Text('2016')),
                         ]),
                         DataRow(cells: [
-                          DataCell(Text('18 - 21')),
-                          DataCell(Text('Menempuh Pendidikan SMK')),
-                          DataCell(Text('Taruna')),
+                          DataCell(Text('MTsN')),
+                          DataCell(Text('MTsN Caruban')),
+                          DataCell(Text('2017')),
+                          DataCell(Text('2020')),
                         ]),
                         DataRow(cells: [
-                          DataCell(Text('21 - Sekarang')),
-                          DataCell(Text('Menempuh Kuliah Jurusan\nSistem Informasi')),
+                          DataCell(Text('SMK')),
+                          DataCell(Text('SMKN 1 Wonoasri')),
+                          DataCell(Text('2020')),
+                          DataCell(Text('2022')),
                         ]),
                       ],
                     ),
@@ -129,7 +135,7 @@ class MyApp extends StatelessWidget {
                                 child: Row(
                                   children: images
                                       .map((image) => Padding(
-                                            padding: const EdgeInsets.all(8.0),
+                                            padding: const EdgeInsets.all(1.0),
                                             child: Image.asset(image),
                                           ))
                                       .toList(),
