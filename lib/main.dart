@@ -29,13 +29,7 @@ class MyApp extends StatelessWidget {
       final String ipk      = "9999";
       final String mot      = "Tetaplah Hidup";
       
-        @override
-        Widget build(BuildContext context) {
-          // TODO: implement build
-          throw UnimplementedError();
-        }
-    }
-    final List<String> images = [
+      final List<String> images = [
       'img/me.png'
       'img/frey.png'
       'img/frey1.png'
@@ -43,17 +37,9 @@ class MyApp extends StatelessWidget {
 
 @override
   Widget build(BuildContext context) {
-    var namal;
-    var fakultas;
-    var alamat;
-    var prodi;
-    var mot;
-    var email;
-    var nohp;
-    var ipk;
     return Padding(
       padding: const EdgeInsets.all(16.0),
-      child: Column(
+       child: Column(
         children: [
           Row(
             children: [
@@ -74,8 +60,14 @@ class MyApp extends StatelessWidget {
                     Text('Kata-kata:'),
                     Text(mot),
                     SizedBox(height: 20),
-            ]),
+                ]),
               ),
+            ],
+              ),
+        ],
+                    ),
+    );
+          
     Expanded(
                 flex: 2,
                 child: Column(
@@ -99,7 +91,7 @@ class MyApp extends StatelessWidget {
                                     Navigator.of(context).pop();
                                   },
                                   child: Text('Tutup'),
-                                ),
+                               ),
                               ],
                             );
                           },
@@ -131,20 +123,16 @@ class MyApp extends StatelessWidget {
                                     Navigator.of(context).pop();
                                   },
                                   child: Text('Tutup'),
-                                ),
+                                   ),
                               ],
                             );
                           },
                         );
                       },
                       child: Text('Lihat Foto'),
-                    ),
+                     ),
                   ],
                 ),
-              ),
-            ],
-      ),
-        ],
-      ),
     );
   }
+    }
