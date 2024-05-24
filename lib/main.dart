@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     ),
 
     body: SingleChildScrollView(
-      child: Bio(),
+      child: Biodata(),
     )
     )
     );
@@ -47,22 +47,88 @@ class MyApp extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children:[
-              Text('Nama:' $namal),
-              Text('Nama:' $nohp),
-              Text('Nama:' $fakultas),
-              Text('Nama:' $prodi),
-              Text('Nama:' $alamat),
-              Text('Nama:' $email),
-              Text('Nama:' $ipk),
-              Text('Nama:' $mot),
-              SizedBox(height: 10)
+              Text('Nama          :' $namal),
+              Text('Nomor Hp      :' $nohp),
+              Text('Fakultas      :' $fakultas),
+              Text('Program Studi :' $prodi),
+              Text('Alamat        :' $alamat),
+              Text('Email         :' $email),
+              Text('IPK           :' $ipk),
+              Text('Moto Hidup    :' $mot),
+              SizedBox(height: 20)
               // donnn
-              )
-            ]
-          )
-        ],)
-      ],
+            ]),
+          ),
+        ],
+        ),
+    ),
 
+    Expanded(
+      flex: 2,
+      child: Column(children: [
+        CircleAvatar(
+              radius: 50,
+              backgroundImage: AssetImage('img/me.png'),
+        ),
+        SizedBox(height: 10),
+        ElevatedButton(onPressed(){
+          showDialog(
+            context: constext,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Text('Bio saya'),
+                content: Text('Loremmmmm'),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      Navigation.og(context).pop();
+                    },
+                  child: Text('Close Pop-Up'),
+                  ),
+                ],
+              ),
+            },
+          ),
+        },
+        child: Text('Me'),
+        ),
+        ElevatedButton(onPressed:() {
+          showDialog(
+            context: constext,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Text('Foto'),
+                content: SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  child: Row(
+                    .map(images) => Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Image.asset(image),
+                    ))
+                    .toList(),
+                    ),
+                  ),
+                  actions: [
+                  TextButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: Text('Tutup'),
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                      },
+                      child: Text('Lihat Foto'),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
   }
-  
 }
