@@ -41,8 +41,16 @@ class MyApp extends StatelessWidget {
       'img/frey1.png'
     ];
 
-    @override
+@override
   Widget build(BuildContext context) {
+    var namal;
+    var fakultas;
+    var alamat;
+    var prodi;
+    var mot;
+    var email;
+    var nohp;
+    var ipk;
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -54,69 +62,71 @@ class MyApp extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-              Text('Nama          :' $namal),
-              Text('Nomor Hp      :' $nohp),
-              Text('Fakultas      :' $fakultas),
-              Text('Program Studi :' $prodi),
-              Text('Alamat        :' $alamat),
-              Text('Email         :' $email),
-              Text('IPK           :' $ipk),
-              Text('Moto Hidup    :' $mot),
-              SizedBox(height: 20)
-              // donnn
+              Text('Nama          : $namal'),
+              Text('Nomor Hp      : $nohp'),
+              Text('Fakultas      : $fakultas'),
+              Text('Program Studi : $prodi'),
+              Text('Alamat        : $alamat'),
+              Text('Email         : $email'),
+              Text('IPK           : $ipk'),
+              Text('Moto Hidup    : $mot'),
+              SizedBox(height: 10),
+                    Text('Kata-kata:'),
+                    Text(mot),
+                    SizedBox(height: 20),
             ]),
-          ),
-        ],
-        ),
-    ),
-
-    Expanded(
-      flex: 2,
-      child: Column(children: [
-        CircleAvatar(
-              radius: 50,
-              backgroundImage: AssetImage('img/me.png'),
-        ),
-        SizedBox(height: 10),
-        ElevatedButton(onPressed(){
-          showDialog(
-            context: constext,
-            builder: (BuildContext context) {
-              return AlertDialog(
-                title: Text('Bio saya'),
-                content: Text('Loremmmmm'),
-                actions: [
-                  TextButton(
-                    onPressed: () {
-                      Navigation.og(context).pop();
-                    },
-                  child: Text('Close Pop-Up'),
-                  ),
-                ],
               ),
-            },
-          ),
-        },
-        child: Text('Me'),
-        ),
-        ElevatedButton(onPressed:() {
-          showDialog(
-            context: constext,
-            builder: (BuildContext context) {
-              return AlertDialog(
-                title: Text('Foto'),
-                content: SingleChildScrollView(
-                  scrollDirection: Axis.vertical,
-                  child: Row(
-                    .map(images) => Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Image.asset(image),
-                    ))
-                    .toList(),
+    Expanded(
+                flex: 2,
+                child: Column(
+                  children: [
+                    CircleAvatar(
+                      radius: 50,
+                      backgroundImage: AssetImage('img/me.png'),
                     ),
-                  ),
-                  actions: [
-                  TextButton(
+                    SizedBox(height: 10),
+                    ElevatedButton(
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: Text('Tentang Saya'),
+                              content: Text('Mantra Lorem'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: Text('Tutup'),
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                      },
+                      child: Text('Tentang Saya'),
+                    ),
+        ElevatedButton(
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: Text('Foto'),
+                              content: SingleChildScrollView(
+                                scrollDirection: Axis.horizontal,
+                                child: Row(
+                                  children: images
+                                      .map((image) => Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Image.asset(image),
+                                          ))
+                                      .toList(),
+                                ),
+                              ),
+                              actions: [
+                                TextButton(
                                   onPressed: () {
                                     Navigator.of(context).pop();
                                   },
@@ -133,9 +143,8 @@ class MyApp extends StatelessWidget {
                 ),
               ),
             ],
-          ),
+      ),
         ],
       ),
     );
   }
-}
