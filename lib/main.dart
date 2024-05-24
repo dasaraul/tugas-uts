@@ -60,14 +60,32 @@ class MyApp extends StatelessWidget {
                     Text('Kata-kata:'),
                     Text(mot),
                     SizedBox(height: 20),
-                ]),
-              ),
-            ],
-              ),
-        ],
+                    Text('Riwayat Hidup:'),
+                    DataTable(
+                      columns: [
+                        DataColumn(label: Text('Umur')),
+                        DataColumn(label: Text('Masa')),
+                        DataColumn(label: Text('Prestasi')),
+                      ],
+                      rows: [
+                        DataRow(cells: [
+                          DataCell(Text('14 - 17')),
+                          DataCell(Text('Menempuh Pendidikan SMP')),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(Text('18 - 21')),
+                          DataCell(Text('Menempuh Pendidikan SMK')),
+                          DataCell(Text('Taruna')),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(Text('21 - Sekarang')),
+                          DataCell(Text('Menempuh Kuliah Jurusan\nSistem Informasi')),
+                        ]),
+                      ],
                     ),
-    );
-          
+                  ],
+                ),
+              ),
     Expanded(
                 flex: 2,
                 child: Column(
@@ -133,6 +151,11 @@ class MyApp extends StatelessWidget {
                      ),
                   ],
                 ),
+    ),
+            ],
+          ),
+        ],
+       ),
     );
   }
     }
