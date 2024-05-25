@@ -1,16 +1,45 @@
-# uts_dart
+# Biodata App
 
-A new Flutter project.
+## Overview
+Jadi ini tugas uts saya dari prodi sistem informasi semester 2
+--> Aplikasi Flutter ini menampilkan informasi biodata pribadi dengan tambahan sedikit style tambahan biar rapih. Aplikasi ini dirancang untuk berjalan dalam orientasi potret saja dan mencakup fitur interaktif seperti dialog pop-up untuk informasi tambahan dan foto.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## Screenshots
+Berikut beberapa potret hasil jadinya di Android:
 
-A few resources to get you started if this is your first Flutter project:
+| Screenshot           | Description              |
+|----------------------|--------------------------|
+| ![Home](screenshots/home.png) | Home |
+| ![About Me PopUp](screenshots/about-me-PopUp.png) | "About Me" pop-up   |
+| ![Photo PopUp](screenshots/photo-PopUp.png) | Photo gallery pop-up |
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Installation
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. **Clone the repository:**
+    ```sh
+    git clone https://github.com/dasaraul/tugas-uts.git
+    cd tugas-uts
+    ```
+
+2. **Install dependencies:**
+    ```sh
+    flutter pub get
+    ```
+
+3. **Run the application:**
+    ```sh
+    flutter run
+    ```
+
+## If Error
+    ```sh
+    gradle clean
+    gradle build
+    ```
+
+    then
+    ```sh
+    flutter clean
+    flutter run
+    ```
