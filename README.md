@@ -31,16 +31,3 @@ Berikut beberapa potret hasil jadinya di Android:
     ```sh
     flutter run
     ```
-
-## If Error
-    ```sh
-    gradle clean
-    gradle build
-    ```
-
-    then
-
-    ```sh
-    flutter clean
-    flutter run
-    ```
