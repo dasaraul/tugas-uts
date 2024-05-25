@@ -39,6 +39,7 @@ Berikut beberapa potret hasil jadinya di Android:
     ```
 
     then
+
     ```sh
     flutter clean
     flutter run
