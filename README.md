@@ -10,9 +10,9 @@ Berikut beberapa potret hasil jadinya di Android:
 
 | Screenshot           | Description              |
 |----------------------|--------------------------|
-| ![Home](screenshots/home.png) | Home |
-| ![About Me PopUp](screenshots/about-me-PopUp.png) | "About Me" pop-up   |
-| ![Photo PopUp](screenshots/photo-PopUp.png) | Photo gallery pop-up |
+| ![Home](img/home.png) | Home |
+| ![About Me PopUp](img/about-me-PopUp.png) | "About Me" pop-up   |
+| ![Photo PopUp](img/photo-PopUp.png) | Photo gallery pop-up |
 
 ## Installation
 
