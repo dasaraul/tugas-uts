@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'dart:ui' as ui;
 
 void main() {
-  // Mengatur orientasi layar menjadi potret saja
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
@@ -19,10 +19,28 @@ class MyApp extends StatelessWidget {
       title: 'Biodata',
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Biodata Saya'),
+          title: Text('Biodata Mahasiswa - Sistem Informasi Universitas Nasional'),
         ),
-        body: SingleChildScrollView(
-          child: Biodata(),
+        body: Stack(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('img/bg.jpg'),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            BackdropFilter(
+              filter: ui.ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+              child: Container(
+                color: Colors.black.withOpacity(0.1),
+                child: SingleChildScrollView(
+                  child: Biodata(),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -64,77 +82,77 @@ class Biodata extends StatelessWidget {
                   children: [
                     Text(
                       'Nama                  : $namal\n',
-                      style: TextStyle(fontSize: fontSize),
+                      style: TextStyle(fontSize: fontSize, color: Colors.white),
                     ),
                     Text(
                       'Nomor Hp           : $nohp\n',
-                      style: TextStyle(fontSize: fontSize),
+                      style: TextStyle(fontSize: fontSize, color: Colors.white),
                     ),
                     Text(
                       'Fakultas               : $fakultas\n',
-                      style: TextStyle(fontSize: fontSize),
+                      style: TextStyle(fontSize: fontSize, color: Colors.white),
                     ),
                     Text(
                       'Program Studi    : $prodi\n',
-                      style: TextStyle(fontSize: fontSize),
+                      style: TextStyle(fontSize: fontSize, color: Colors.white),
                     ),
                     Text(
                       'Alamat                : $alamat\n',
-                      style: TextStyle(fontSize: fontSize),
+                      style: TextStyle(fontSize: fontSize, color: Colors.white),
                     ),
                     Text(
                       'Email                   : $email\n',
-                      style: TextStyle(fontSize: fontSize),
+                      style: TextStyle(fontSize: fontSize, color: Colors.white),
                     ),
                     Text(
                       'IPK                        : $ipk\n',
-                      style: TextStyle(fontSize: fontSize),
+                      style: TextStyle(fontSize: fontSize, color: Colors.white),
                     ),
                     Text(
                       'Moto Hidup           : $mot\n',
-                      style: TextStyle(fontSize: fontSize),
+                      style: TextStyle(fontSize: fontSize, color: Colors.white),
                     ),
                     SizedBox(height: screenHeight * 0.01),
                     Text(
                       'Kata-kata      :',
-                      style: TextStyle(fontSize: fontSize),
+                      style: TextStyle(fontSize: fontSize, color: Colors.white),
                     ),
                     Text(
                       mot,
-                      style: TextStyle(fontSize: fontSize),
+                      style: TextStyle(fontSize: fontSize, color: Colors.white),
                     ),
                     SizedBox(height: screenHeight * 0.02),
                     Text(
                       'Riwayat Pendidikan:',
-                      style: TextStyle(fontSize: fontSize),
+                      style: TextStyle(fontSize: fontSize, color: Colors.white),
                     ),
                     SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: DataTable(
                         columns: [
-                          DataColumn(label: Text('Jenjang', style: TextStyle(fontSize: fontSize))),
-                          DataColumn(label: Text('Nama Sekolah', style: TextStyle(fontSize: fontSize))),
-                          DataColumn(label: Text('Tahun Masuk', style: TextStyle(fontSize: fontSize))),
-                          DataColumn(label: Text('Tahun Lulus', style: TextStyle(fontSize: fontSize))),
+                          DataColumn(label: Text('Jenjang', style: TextStyle(fontSize: fontSize, color: Colors.white))),
+                          DataColumn(label: Text('Nama Sekolah', style: TextStyle(fontSize: fontSize, color: Colors.white))),
+                          DataColumn(label: Text('Tahun Masuk', style: TextStyle(fontSize: fontSize, color: Colors.white))),
+                          DataColumn(label: Text('Tahun Lulus', style: TextStyle(fontSize: fontSize, color: Colors.white))),
                         ],
                         rows: [
                           DataRow(cells: [
-                            DataCell(Text('SD', style: TextStyle(fontSize: fontSize))),
-                            DataCell(Text('SD Ulil Albab', style: TextStyle(fontSize: fontSize))),
-                            DataCell(Text('2010', style: TextStyle(fontSize: fontSize))),
-                            DataCell(Text('2016', style: TextStyle(fontSize: fontSize))),
+                            DataCell(Text('SD', style: TextStyle(fontSize: fontSize, color: Colors.white))),
+                            DataCell(Text('SD Ulil Albab', style: TextStyle(fontSize: fontSize, color: Colors.white))),
+                            DataCell(Text('2010', style: TextStyle(fontSize: fontSize, color: Colors.white))),
+                            DataCell(Text('2016', style: TextStyle(fontSize: fontSize, color: Colors.white))),
                           ]),
                           DataRow(cells: [
-                            DataCell(Text('MTsN', style: TextStyle(fontSize: fontSize))),
-                            DataCell(Text('MTsN Caruban', style: TextStyle(fontSize: fontSize))),
-                            DataCell(Text('2017', style: TextStyle(fontSize: fontSize))),
-                            DataCell(Text('2020', style: TextStyle(fontSize: fontSize))),
+                            DataCell(Text('MTsN', style: TextStyle(fontSize: fontSize, color: Colors.white))),
+                            DataCell(Text('MTsN Caruban', style: TextStyle(fontSize: fontSize, color: Colors.white))),
+                            DataCell(Text('2017', style: TextStyle(fontSize: fontSize, color: Colors.white))),
+                            DataCell(Text('2020', style: TextStyle(fontSize: fontSize, color: Colors.white))),
                           ]),
                           DataRow(cells: [
-                            DataCell(Text('SMK', style: TextStyle(fontSize: fontSize))),
-                            DataCell(Text('SMKN 1 Wonoasri', style: TextStyle(fontSize: fontSize))),
-                            DataCell(Text('2020', style: TextStyle(fontSize: fontSize))),
-                            DataCell(Text('2022', style: TextStyle(fontSize: fontSize))),
+                            DataCell(Text('SMK', style: TextStyle(fontSize: fontSize, color: Colors.white))),
+                            DataCell(Text('SMKN 1 Wonoasri', style: TextStyle(fontSize: fontSize, color: Colors.white))),
+                            DataCell(Text('2020', style: TextStyle(fontSize: fontSize, color: Colors.white))),
+                            DataCell(Text('2022', style: TextStyle(fontSize: fontSize, color: Colors.white))),
                           ]),
                         ],
                       ),

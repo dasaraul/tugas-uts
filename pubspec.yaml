@@ -63,6 +63,7 @@ flutter:
     - img/me.png
     - img/frey.png
     - img/frey1.png
+    - img/bg.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
